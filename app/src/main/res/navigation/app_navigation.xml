@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/itemHome">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.advnmpproj.adv160818008midterm.view.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/actionRegFrag"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/actionBackProfile"
+            app:destination="@id/itemProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.advnmpproj.adv160818008midterm.view.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/actionLogFrag"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemHome"
+        android:name="com.advnmpproj.adv160818008midterm.view.RecipeListFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_recipe_list">
+        <action
+            android:id="@+id/actionRecDetail"
+            app:destination="@id/detailRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailRecipeFragment"
+        android:name="com.advnmpproj.adv160818008midterm.view.DetailRecipeFragment"
+        android:label="Ingredients and Recipe "
+        tools:layout="@layout/fragment_detail_recipe">
+        <action
+            android:id="@+id/actionBackToRecList"
+            app:destination="@id/itemHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemCommunity"
+        android:name="com.advnmpproj.adv160818008midterm.view.CommunityFragment"
+        android:label="Community"
+        tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.advnmpproj.adv160818008midterm.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/actionLogin"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="unameProfile"
+            app:argType="string"
+            android:defaultValue="Guest" />
+        <argument
+            android:name="emailProf"
+            app:argType="string"
+            android:defaultValue="-" />
+        <argument
+            android:name="statusLogin"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemHelp"
+        android:name="com.advnmpproj.adv160818008midterm.view.HelpFragment"
+        android:label="Help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/itemAbout"
+        android:name="com.advnmpproj.adv160818008midterm.view.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about_us" />
+</navigation>
