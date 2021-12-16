@@ -32,7 +32,13 @@
         android:label="Home"
         tools:layout="@layout/fragment_recipe_list">
         <action
-            android:id="@+id/actionRecDetail"
+            android:id="@+id/actionCreateRecipe"
+            app:destination="@id/createRecipeFragment" />
+        <action
+            android:id="@+id/actTesToEdit"
+            app:destination="@id/editRecipeFragment" />
+        <action
+            android:id="@+id/actionToDetail"
             app:destination="@id/detailRecipeFragment" />
     </fragment>
     <fragment
@@ -40,9 +46,12 @@
         android:name="com.advnmpproj.adv160818008midterm.view.DetailRecipeFragment"
         android:label="Ingredients and Recipe "
         tools:layout="@layout/fragment_detail_recipe">
+        <argument
+            android:name="detailId"
+            app:argType="integer" />
         <action
-            android:id="@+id/actionBackToRecList"
-            app:destination="@id/itemHome" />
+            android:id="@+id/actionEditRecipe"
+            app:destination="@id/editRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemCommunity"
@@ -80,4 +89,23 @@
         android:name="com.advnmpproj.adv160818008midterm.view.AboutUsFragment"
         android:label="About Us"
         tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/createRecipeFragment"
+        android:name="com.advnmpproj.adv160818008midterm.view.CreateRecipeFragment"
+        android:label="CreateRecipeFragment" >
+        <action
+            android:id="@+id/actionCreateBackToList"
+            app:destination="@id/itemHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRecipeFragment"
+        android:name="com.advnmpproj.adv160818008midterm.view.EditRecipeFragment"
+        android:label="EditRecipeFragment" >
+        <action
+            android:id="@+id/actionEditBackToDetail"
+            app:destination="@id/detailRecipeFragment" />
+        <argument
+            android:name="recId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

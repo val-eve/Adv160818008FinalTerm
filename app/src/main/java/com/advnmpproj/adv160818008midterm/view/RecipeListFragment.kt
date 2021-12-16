@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.advnmpproj.adv160818008midterm.R
 import com.advnmpproj.adv160818008midterm.viewmodel.RecListViewModel
@@ -33,6 +34,11 @@ class RecipeListFragment : Fragment() {
         recView.layoutManager = LinearLayoutManager(context)
         recView.adapter = recipeListAdapter
 
+        fabCreateRec.setOnClickListener {
+            val act = RecipeListFragmentDirections.actionCreateRecipe()
+            Navigation.findNavController(it).navigate(act)
+        }
+
         observeViewModel()
     }
 
@@ -40,24 +46,39 @@ class RecipeListFragment : Fragment() {
     {
         viewModel.recipesLD.observe(viewLifecycleOwner, Observer {
             recipeListAdapter.updateRecList(it)
-        })
 
-        viewModel.recipeLoadErrorLD.observe(viewLifecycleOwner, Observer {
-            txtError.visibility = if(it == true) View.VISIBLE else View.GONE
-        })
-
-        viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
-            if (it == true)
-            {
-                recView.visibility = View.VISIBLE
-                progLoad.visibility = View.GONE
-            }
-            else
-            {
-                recView.visibility = View.GONE
-                progLoad.visibility = View.VISIBLE
-
+            with(txtEmpty){
+                if(it.isEmpty())
+                {
+                    visibility = View.VISIBLE
+                    txtError.visibility = View.GONE
+                    progLoad.visibility = View.GONE
+                }
+                else
+                {
+                    visibility = View.GONE
+                    txtError.visibility = View.GONE
+                    progLoad.visibility = View.GONE
+                }
             }
         })
+
+//        viewModel.recipeLoadErrorLD.observe(viewLifecycleOwner, Observer {
+//            txtError.visibility = if(it == true) View.VISIBLE else View.GONE
+//        })
+//
+//        viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
+//            if (it == true)
+//            {
+//                recView.visibility = View.VISIBLE
+//                progLoad.visibility = View.GONE
+//            }
+//            else
+//            {
+//                recView.visibility = View.GONE
+//                progLoad.visibility = View.VISIBLE
+//
+//            }
+//        })
     }
 }
