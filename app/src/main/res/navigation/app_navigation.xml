@@ -92,7 +92,7 @@
     <fragment
         android:id="@+id/createRecipeFragment"
         android:name="com.advnmpproj.adv160818008midterm.view.CreateRecipeFragment"
-        android:label="CreateRecipeFragment" >
+        android:label="Add New Recipe">
         <action
             android:id="@+id/actionCreateBackToList"
             app:destination="@id/itemHome" />
@@ -100,7 +100,7 @@
     <fragment
         android:id="@+id/editRecipeFragment"
         android:name="com.advnmpproj.adv160818008midterm.view.EditRecipeFragment"
-        android:label="EditRecipeFragment" >
+        android:label="Edit Recipe">
         <action
             android:id="@+id/actionEditBackToDetail"
             app:destination="@id/detailRecipeFragment" />
