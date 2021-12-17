@@ -21,6 +21,6 @@ class AboutUsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        imgAbout.loadImage("https://pixabay.com/get/g4679678e6f93f147e9b4c01ea4321af6b5c9e957e72c1a227f8e4b839f3d643ef8360fa5596eb0ed5d7798b5fce1433157c728827ae68c6df4198597b4d0555f_640.jpg", progressAbout)
+        imgAbout.loadImage("https://cdn.pixabay.com/photo/2021/02/18/09/27/people-6026674_1280.png", progressAbout)
     }
 }
